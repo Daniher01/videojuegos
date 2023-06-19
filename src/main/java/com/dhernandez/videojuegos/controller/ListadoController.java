@@ -7,6 +7,7 @@ package com.dhernandez.videojuegos.controller;
 import com.dhernandez.videojuegos.domain.Videojuego;
 import com.dhernandez.videojuegos.service.VideojuegoService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,4 +32,5 @@ public class ListadoController {
         model.addAttribute("videojuegos", destacados);
         return("listado");
     }
+    
 }

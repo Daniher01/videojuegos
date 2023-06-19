@@ -8,6 +8,10 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/videojuegos.css">
+        <link rel="stylesheet" href="../static/css/videojuegos.css" type="text/css"/>
+        <link rel="stylesheet" href="../static/css/videojuegos.css" type="text/css">
+
+
 
         <title>Tienda VJ</title>
     </head>
@@ -26,6 +30,7 @@
                         <img th:src="${juego.imagenUrl}" src="" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
+                            <span class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></span>
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-muted">
