@@ -2,6 +2,7 @@ version: '3.8'
 services:
   mariadb:
     image: mariadb
+    container_name: mydb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -9,9 +10,10 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: root
     ports:
-      - 3306:3306
+      - 33066:3306
     volumes:
       - ./datos:/var/lib/mysql
+    command: --bind-address=0.0.0.0
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

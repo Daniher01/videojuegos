@@ -4,15 +4,48 @@
  */
 package com.dhernandez.videojuegos.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 /**
  *
  * @author danih
+ * 
+ * ANOTACIONES
+ * @Entity
+ * La clase se asociará a una tabla con el mismo nombre.
+ * Se puede también agregar @Table para indicar a mano el nombre de la 
+ * tabla.
+ * 
+ * @Id
+ * Este atributo es la primary key en la tabla.
+ * 
+ * @GenerateValue
+ * La estrategia de generacion de este ID ( GenerationType.AUTO -> de manera automatica)
+ * 
+ * Los atributos se asocian con las columnas,
+ * usando el mismo nombre del atributo. Se pueden agregar
+ * @Column para indicar manualmente el nombre de una columna
  */
+@Entity
 public class Videojuego {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String nombre;
     private String descripcion;
     private String imagenUrl;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
