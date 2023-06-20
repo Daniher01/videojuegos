@@ -31,6 +31,7 @@
                         <div class="card-body">
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
                             <span class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></span>
+                            <span class="badge badge-pill badge-success" th:text="${juego.desarrollador.nombre}"></span>
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-muted">

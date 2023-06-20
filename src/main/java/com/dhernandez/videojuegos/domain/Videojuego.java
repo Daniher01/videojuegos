@@ -39,9 +39,10 @@ public class Videojuego {
     private String nombre;
     private String descripcion;
     private String imagenUrl;
-    // objeto distribuidor
     @ManyToOne
     private Distribuidor distribuidor;
+    @ManyToOne
+    private Desarrollador desarrollador;
 
     public Integer getId() {
         return id;
@@ -82,7 +83,12 @@ public class Videojuego {
     public void setDistribuidor(Distribuidor distribuidor) {
         this.distribuidor = distribuidor;
     }
-    
-    
 
+    public Desarrollador getDesarrollador() {
+        return desarrollador;
+    }
+
+    public void setDesarrollador(Desarrollador desarrollador) {
+        this.desarrollador = desarrollador;
+    }
 }
