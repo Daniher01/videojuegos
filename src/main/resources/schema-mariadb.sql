@@ -1,5 +1,6 @@
 drop table if exists videojuego;
 drop table if exists distribuidor;
+drop table if exists desarrollador;
 
 create table videojuego (
     id int primary key auto_increment,
@@ -49,3 +50,25 @@ update videojuego set distribuidor_id = 7 where id in (8);
 
 alter table videojuego
 modify distribuidor_id int not null;
+
+create table desarrollador (
+    id int primary key auto_increment,
+    nombre varchar(200) not null
+);
+
+insert into desarrollador
+(id,    nombre) values
+(1,     'Daniel'),
+(2,     'Johanna'),
+(3,     'Juan')
+
+alter table videojuego
+add column desarrollador_id int,
+add foreign key (desarrollador_id) references desarrollador(id);
+
+update videojuego set desarrollador_id = 1 where id in (1, 3, 5);
+update videojuego set desarrollador_id = 2 where id in (2, 6, 7);
+update videojuego set desarrollador_id = 3 where id in (4, 8);
+
+alter table videojuego
+modify desarrollador_id int not null;
