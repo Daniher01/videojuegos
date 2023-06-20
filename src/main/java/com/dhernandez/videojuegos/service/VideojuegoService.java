@@ -28,6 +28,6 @@ public class VideojuegoService {
 
     public List<Videojuego> buscarDestacatos() {
 
-        return videojuegoRepository.findAll();
+        return videojuegoRepository.buscarTodos();
     }
 }
