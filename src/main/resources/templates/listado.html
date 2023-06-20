@@ -17,21 +17,30 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{/}">
                 <img src="img/logo.png" width="30" height="30" alt="">
                 Tienda VJ
             </a>
+            <form th:action="@{/buscar}" class="d-flex" role="search">
+                <input autofocus="autofocus" name="q" class="form-control me-2" type="search" th:placeholder="${param.q}" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
         </nav>
+
+
 
         <div class="container mt-4 vj-destacados">
             <div class="row">
-                <div th:each="juego: ${videojuegos}" class="col-md-3 mb-4">
+
+                <div th:if="${videojuegos.isEmpty()}" class="col-md-3 mb-4"> No hay resultados</div>
+
+                <div th:unless="${videojuegos.isEmpty()}" th:each="juego: ${videojuegos}" class="col-md-3 mb-4">
                     <div class="card">
                         <img th:src="${juego.imagenUrl}" src="" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
-                            <span class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></span>
-                            <span class="badge badge-pill badge-success" th:text="${juego.desarrollador.nombre}"></span>
+                            <a th:href="@{/videojuegosPorDistribuidor(distribuidorId=${juego.distribuidor.id})}" class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
+                            <a th:href="@{/videojuegosPorDesarrollador(desarrolladorId=${juego.desarrollador.id})}" class="badge badge-pill badge-success" th:text="${juego.desarrollador.nombre}"></a>
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-muted">

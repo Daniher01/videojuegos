@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -31,6 +32,27 @@ public class ListadoController {
         List<Videojuego> destacados = videojuegoService.buscarDestacatos();
         model.addAttribute("videojuegos", destacados);
         return("listado");
+    }
+
+    @RequestMapping("/videojuegosPorDistribuidor")
+    public String listarVideojuegosPorDistribuidor(int distribuidorId, Model model){
+        List<Videojuego> juegos = videojuegoService.buscarPorDistribuidor(distribuidorId);
+        model.addAttribute("videojuegos", juegos);
+        return ("listado");
+    }
+
+    @RequestMapping("/videojuegosPorDesarrollador")
+    public String listarVideojuegosPorDesarrollador(int desarrolladorId, Model model){
+        List<Videojuego> juegos = videojuegoService.buscarPorDesarrollador(desarrolladorId);
+        model.addAttribute("videojuegos", juegos);
+        return ("listado");
+    }
+
+    @RequestMapping("/buscar")
+    public String buscar(@RequestParam("q") String consulta, Model model){
+        List<Videojuego> juegos = videojuegoService.buscar(consulta);
+        model.addAttribute("videojuegos", juegos);
+        return ("listado");
     }
     
 }

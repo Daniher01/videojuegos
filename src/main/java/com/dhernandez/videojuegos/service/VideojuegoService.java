@@ -23,11 +23,21 @@ public class VideojuegoService {
     public VideojuegoService(VideojuegoRepository videojuegoRepository) {
         this.videojuegoRepository = videojuegoRepository;
     }
-    
-    
 
     public List<Videojuego> buscarDestacatos() {
 
         return videojuegoRepository.buscarTodos();
+    }
+
+    public List<Videojuego> buscarPorDistribuidor(int distribuidorId){
+        return videojuegoRepository.buscarPorDistribuidor(distribuidorId);
+    }
+
+    public List<Videojuego> buscarPorDesarrollador(int desarrolladorId){
+        return videojuegoRepository.buscarPorDesarrollador(desarrolladorId);
+    }
+
+    public List<Videojuego> buscar(String consulta){
+        return videojuegoRepository.buscar(consulta);
     }
 }

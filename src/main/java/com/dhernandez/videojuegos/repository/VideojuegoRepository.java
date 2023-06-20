@@ -25,9 +25,19 @@ import java.util.List;
  * detele()
  */
 public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer> {
+    /** la consultas de JPQL son sobre las clases (en este caso sobre la clase Videojuego y su instancia v **/
+
     // agregar query nativo de sql
-    /**@Query(value = "select * from videojuego order by nombre", nativeQuery = true)**/
-    // la consultas de JPQL son sobre las clases (en este caso sobre la clase Videojuego y su instancia v
+    //@Query(value = "select * from videojuego order by nombre", nativeQuery = true)
     @Query("select v from Videojuego v order by v.nombre")
     List<Videojuego> buscarTodos();
+
+    @Query("from Videojuego v where v.distribuidor.id = ?1 order by v.nombre")
+    List<Videojuego> buscarPorDistribuidor(int distribuidorId);
+
+    @Query("from Videojuego v where v.desarrollador.id = ?1 order by v.nombre")
+    List<Videojuego> buscarPorDesarrollador(int desarrolladorId);
+
+    @Query("from Videojuego v where v.nombre like %?1% OR v.distribuidor.nombre like %?1% OR v.descripcion like %?1% OR v.desarrollador.nombre like %?1%")
+    List<Videojuego> buscar(String consulta);
 }
