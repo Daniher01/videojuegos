@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Infraestructura ###
-./Infraestructura/datos
+./db-data
