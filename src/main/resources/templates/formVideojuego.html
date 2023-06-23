@@ -18,7 +18,7 @@
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/img/logo.png}" width="30" height="30" alt="">
+                <img th:src="@{/img/logo.png}" width="30" height="30" alt="" src="">
                 Tienda VJ
             </a>
             <form th:action="@{/buscar}" class="d-flex" role="search">
@@ -35,18 +35,30 @@
                 <div class="col-md-12 ">
                     <h1>Nuevo Videojuego</h1>
 
-                    <form>
+                    <form method="POST" th:action="@{/videojuegos/guardar}" th:object="${videojuego}">
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Nombre">
                         </div>
                         <div class="form-group">
                             <label for="descripcion" class="form-label">Descripcion</label>
-                            <textarea type="text" rows="3" class="form-control" id="descripcion" placeholder="Descripcion"></textarea>
+                            <textarea type="text" rows="3" class="form-control" th:field="*{descripcion}" id="descripcion" placeholder="Descripcion"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagenUrl" class="form-label">URL de la imagen</label>
-                            <input type="text" class="form-control" id="imagenUrl" placeholder="Url de la imagen">
+                            <input type="text" class="form-control" th:field="*{imagenUrl}" id="imagenUrl" placeholder="Url de la imagen">
+                        </div>
+                        <div class="form-group">
+                            <label for="distribuidor" class="form-label">Distribuidor</label>
+                            <select class="form-control" th:field="*{distribuidor}" id="distribuidor">
+                                <option th:each="distribuidor : ${distribuidores}" th:value="${distribuidor.id}" th:text="${distribuidor.nombre}"></option>
+                            <select/>
+                        </div>
+                        <div class="form-group">
+                            <label for="desarrollador" class="form-label">Desarrollador</label>
+                            <select class="form-control" th:field="*{desarrollador}" id="desarrollador">
+                                <option th:each="desarrollador : ${desarrolladores}" th:value="${desarrollador.id}" th:text="${desarrollador.nombre}"></option>
+                            <select/>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>

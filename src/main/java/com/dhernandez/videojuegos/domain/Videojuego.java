@@ -91,4 +91,16 @@ public class Videojuego {
     public void setDesarrollador(Desarrollador desarrollador) {
         this.desarrollador = desarrollador;
     }
+
+    @Override
+    public String toString() {
+        return "Videojuego{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", imagenUrl='" + imagenUrl + '\'' +
+                ", distribuidor=" + distribuidor +
+                ", desarrollador=" + desarrollador +
+                '}';
+    }
 }
