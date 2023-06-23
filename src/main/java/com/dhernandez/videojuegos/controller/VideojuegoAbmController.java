@@ -4,6 +4,7 @@ import com.dhernandez.videojuegos.domain.Videojuego;
 import com.dhernandez.videojuegos.repository.DesarrolladorRepository;
 import com.dhernandez.videojuegos.service.DesarrolladorService;
 import com.dhernandez.videojuegos.service.DistribuidorService;
+import com.dhernandez.videojuegos.service.VideojuegoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +15,14 @@ public class VideojuegoAbmController {
 
     private final DistribuidorService distribuidorService;
     private final DesarrolladorService desarrolladorService;
+    private final VideojuegoService videojuegoService;
 
-    public VideojuegoAbmController(DistribuidorService distribuidorService, DesarrolladorService desarrolladorService) {
+    public VideojuegoAbmController(DistribuidorService distribuidorService, DesarrolladorService desarrolladorService, VideojuegoService videojuegoService) {
         this.distribuidorService = distribuidorService;
         this.desarrolladorService = desarrolladorService;
+        this.videojuegoService = videojuegoService;
     }
+
 
     @RequestMapping("/videojuegos/crear")
     public String mostrarFormAlta(Model model) {
@@ -30,7 +34,7 @@ public class VideojuegoAbmController {
 
     @PostMapping("/videojuegos/guardar")
     public String guardar(Videojuego videojuego){
-        System.out.println(videojuego);
+        videojuegoService.guardar(videojuego);
         return "redirect:/";
     }
 }

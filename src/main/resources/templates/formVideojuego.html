@@ -38,25 +38,25 @@
                     <form method="POST" th:action="@{/videojuegos/guardar}" th:object="${videojuego}">
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Nombre" required>
                         </div>
                         <div class="form-group">
                             <label for="descripcion" class="form-label">Descripcion</label>
-                            <textarea type="text" rows="3" class="form-control" th:field="*{descripcion}" id="descripcion" placeholder="Descripcion"></textarea>
+                            <textarea type="text" rows="3" class="form-control" th:field="*{descripcion}" id="descripcion" placeholder="Descripcion" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagenUrl" class="form-label">URL de la imagen</label>
-                            <input type="text" class="form-control" th:field="*{imagenUrl}" id="imagenUrl" placeholder="Url de la imagen">
+                            <input type="text" class="form-control" th:field="*{imagenUrl}" id="imagenUrl" placeholder="Url de la imagen" required>
                         </div>
                         <div class="form-group">
                             <label for="distribuidor" class="form-label">Distribuidor</label>
-                            <select class="form-control" th:field="*{distribuidor}" id="distribuidor">
+                            <select class="form-control" th:field="*{distribuidor}" id="distribuidor" required>
                                 <option th:each="distribuidor : ${distribuidores}" th:value="${distribuidor.id}" th:text="${distribuidor.nombre}"></option>
                             <select/>
                         </div>
                         <div class="form-group">
                             <label for="desarrollador" class="form-label">Desarrollador</label>
-                            <select class="form-control" th:field="*{desarrollador}" id="desarrollador">
+                            <select class="form-control" th:field="*{desarrollador}" id="desarrollador" required>
                                 <option th:each="desarrollador : ${desarrolladores}" th:value="${desarrollador.id}" th:text="${desarrollador.nombre}"></option>
                             <select/>
                         </div>

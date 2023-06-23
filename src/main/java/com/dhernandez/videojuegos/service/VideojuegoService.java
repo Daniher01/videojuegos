@@ -40,4 +40,8 @@ public class VideojuegoService {
     public List<Videojuego> buscar(String consulta){
         return videojuegoRepository.buscar(consulta);
     }
+
+    public Videojuego guardar (Videojuego videojuego){
+        return videojuegoRepository.save(videojuego);
+    }
 }
