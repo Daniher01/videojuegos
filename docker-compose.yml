@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - "33067:3306"
+    volumes:
+      - ./src/main/resources/schema-mariadb.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./db-data:/var/lib/mysql
+    networks:
+      - mi_red
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mariadb
+    depends_on:
+      - mariadb
+    networks:
+      - mi_red
+
+networks:
+  mi_red:
+    driver: bridge

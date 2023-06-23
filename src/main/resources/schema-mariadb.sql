@@ -60,7 +60,7 @@ insert into desarrollador
 (id,    nombre) values
 (1,     'Daniel'),
 (2,     'Johanna'),
-(3,     'Juan')
+(3,     'Juan');
 
 alter table videojuego
 add column desarrollador_id int,
