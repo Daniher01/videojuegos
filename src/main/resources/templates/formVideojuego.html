@@ -38,6 +38,7 @@
                     <form method="POST" th:action="@{/videojuegos/guardar}" th:object="${videojuego}">
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre</label>
+                            <input type="hidden" class="form-control" th:field="*{id}" id="id" placeholder="id">
                             <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Nombre" required>
                         </div>
                         <div class="form-group">

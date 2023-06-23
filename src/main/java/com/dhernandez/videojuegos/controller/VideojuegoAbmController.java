@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 public class VideojuegoAbmController {
@@ -29,6 +32,14 @@ public class VideojuegoAbmController {
         model.addAttribute("distribuidores", distribuidorService.buscarTodos());
         model.addAttribute("desarrolladores", desarrolladorService.buscarTodos());
         model.addAttribute("videojuego", new Videojuego());
+        return "formVideojuego";
+    }
+
+    @RequestMapping("/videojuegos/actualizar")
+    public String mostrarFormUpdate(int videojuegoId, Model model){
+        model.addAttribute("distribuidores", distribuidorService.buscarTodos());
+        model.addAttribute("desarrolladores", desarrolladorService.buscarTodos());
+        model.addAttribute("videojuego", videojuegoService.buscarPorId(videojuegoId));
         return "formVideojuego";
     }
 

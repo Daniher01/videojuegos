@@ -51,7 +51,7 @@
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-muted">
-                            <a href="#" class="btn btn-primary">Ver detalles</a>
+                            <a th:href="@{/videojuegos/actualizar(videojuegoId=${juego.id})}" class="btn btn-primary">Actualizar</a>
                         </div>                        
                     </div>
                 </div>                             
