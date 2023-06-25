@@ -1,4 +1,4 @@
-package com.dhernandez.videojuegos.web.controller;
+package com.dhernandez.videojuegos.controller.web;
 
 import com.dhernandez.videojuegos.domain.Videojuego;
 import com.dhernandez.videojuegos.repository.DesarrolladorRepository;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dhernandez.videojuegos.web.controller;
+package com.dhernandez.videojuegos.controller.web;
 
 import com.dhernandez.videojuegos.domain.Videojuego;
 import com.dhernandez.videojuegos.service.VideojuegoService;

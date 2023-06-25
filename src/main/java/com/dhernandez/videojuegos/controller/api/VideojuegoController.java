@@ -1,4 +1,4 @@
-package com.dhernandez.videojuegos.api.controller;
+package com.dhernandez.videojuegos.controller.api;
 
 import com.dhernandez.videojuegos.domain.Videojuego;
 import com.dhernandez.videojuegos.service.VideojuegoService;
