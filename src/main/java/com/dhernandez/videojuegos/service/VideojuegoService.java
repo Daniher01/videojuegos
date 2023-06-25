@@ -48,4 +48,8 @@ public class VideojuegoService {
     public Videojuego guardar (Videojuego videojuego){
         return videojuegoRepository.save(videojuego);
     }
+
+    public void eliminar (int id){
+        videojuegoRepository.deleteById(id);
+    }
 }
