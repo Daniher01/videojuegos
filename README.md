@@ -9,7 +9,7 @@ pagina web para la gestion de videojegos, junto con una api rest para poder hace
 - Estar en el directorio raiz del proyecto
 - Ejecutar ```docker-compose up -d ```
 - Para ir a la pagina web, ir a ``` Ir a localhost:8081 ```
-- - Para consumir la api rest, ir a ``` Ir a localhost:8081/api/videojuegos ```
+- Para consumir la api rest, ir a ``` Ir a localhost:8081/api/videojuegos ```
 
 ### Tecnologías utilizadas
 
