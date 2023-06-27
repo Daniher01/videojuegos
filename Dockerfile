@@ -1,8 +1,6 @@
 # Usa una imagen base de Java
 FROM openjdk:17-jdk-alpine
 
-VOLUME /tmp
-EXPOSE 8085
 ARG JAR_FILE=target/videojuegos.jar
 # Copia el archivo JAR al contenedor
 COPY target/videojuegos.jar /app.jar

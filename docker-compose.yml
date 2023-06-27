@@ -1,46 +1,14 @@
 version: '3.8'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  java_db:
+    container_name: java_db
+    image: postgres:13
     ports:
-      - 8082:8085
+      - 5678:5432
     environment:
-      DB_URL: 'jdbc:mysql://localhost:3306/videojuegos'
-      DB_USERNAME: 'root'
-      BD_PASSWORD: 'root'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: videojuegos
     volumes:
-      - ./target:/app/target
-    depends_on:
-      - mariadb
-    networks:
-      - mi_red
-  mariadb:
-    image: mariadb
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - "33067:3306"
-    volumes:
-      - ./src/main/resources/schema-mariadb.sql:/docker-entrypoint-initdb.d/data.sql
-      - ./db-data:/var/lib/mysql
-    networks:
-      - mi_red
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - "8081:80"
-    environment:
-      PMA_HOST: mariadb
-    depends_on:
-      - mariadb
-    networks:
-      - mi_red
-
-networks:
-  mi_red:
-    driver: bridge
+      - ./src/main/resources/schema-postgres.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./db-data:/var/lib/postgresql/data
