@@ -12,3 +12,15 @@ services:
     volumes:
       - ./src/main/resources/schema-postgres.sql:/docker-entrypoint-initdb.d/data.sql
       - ./db-data:/var/lib/postgresql/data
+
+  java_app:
+    container_name: java_app
+    build: .
+    ports:
+      - 8081:8080
+    environment:
+      - DATABASE_URL=jdbc:postgresql://java_db:5432/videojuegos
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+    depends_on:
+      - java_db
